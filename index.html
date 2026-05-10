@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torpedos Kana Sports Club</title>
+  <meta name="description" content="Torpedos Kana Sports Club — Fostering Community Spirit Through Sports. 30 Years of Excellence in Cricket and Community Service." />
+  <meta name="keywords" content="cricket, sports club, community, Kana, Surathkal, Mangaluru" />
+  <link rel="icon" href="https://torpedoskana.com/torpedo-kana-logo-black-bg.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            green: {
+              DEFAULT: '#16a34a',
+              dark:    '#15803d',
+              light:   '#dcfce7',
+              pale:    '#f0fdf4',
+            },
+            yellow: {
+              DEFAULT: '#c8e600',
+              dark:    '#a8c200',
+              soft:    '#f4ffe6',
+            },
+            ink: {
+              900: '#0f172a',
+              800: '#1e293b',
+              700: '#334155',
+              600: '#475569',
+              500: '#64748b',
+              400: '#94a3b8',
+              200: '#e2e8f0',
+              100: '#f1f5f9',
+              50:  '#f8fafc',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background:#0f172a; color:#f9fafb; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.7; }
+
+    /* Navbar */
+    #navbar { transition: background 0.3s ease, box-shadow 0.3s ease; }
+    #navbar.scrolled { background: rgba(0,0,0,0.97) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+
+    /* Nav link hover */
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:#c8e600; transition:width 0.25s ease; }
+    .nav-link:hover::after { width:100%; }
+
+    /* Hero */
+    .hero-bg {
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%),
+                        url('https://torpedoskana.com/Hero-section-bg.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+    }
+
+    /* Reveal animation */
+    .reveal { opacity:0; transform:translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* Cards */
+    .card {
+      border: 3px solid rgba(200,230,0,0.55) !important;
+      box-shadow: 0 0 10px rgba(200,230,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #c8e600 !important;
+      box-shadow: 0 0 0 2px rgba(200,230,0,0.6), 0 0 28px rgba(200,230,0,0.4), 0 8px 32px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Trophy card */
+    .trophy-card:hover img { transform: scale(1.05); }
+    .trophy-card img { transition: transform 0.4s ease; }
+
+    /* Yellow underline accent */
+    .section-accent { display:inline-block; width:48px; height:4px; background:#c8e600; border-radius:2px; }
+
+    /* Hero fade-in */
+    @keyframes hero-fade { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .hero-content { animation: hero-fade 0.8s ease forwards; }
+
+    /* Bounce */
+    @keyframes bounce-slow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+    .bounce-slow { animation:bounce-slow 2.2s infinite; }
+
+    /* Mobile menu */
+    #mobile-menu { transition: max-height 0.35s ease, opacity 0.35s ease; }
+
+    /* Player card */
+    .player-img { transition: transform 0.3s ease; }
+    .player-card:hover .player-img { transform: scale(1.06); }
+
+    /* Stat counter */
+    .stat-num { font-variant-numeric: tabular-nums; }
+
+    /* Yellow glow */
+    .yellow-glow { box-shadow: 0 0 0 3px rgba(200,230,0,0.35); }
+
+    /* Horizontal scroll track */
+    .scrollbar-hide::-webkit-scrollbar { display:none; }
+    .scrollbar-hide { -ms-overflow-style:none; scrollbar-width:none; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center flex-shrink-0">
+        <img src="https://torpedoskana.com/torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="h-14 w-auto" />
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex items-center gap-8 mx-auto">
+        <li><a href="#home"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Home</a></li>
+        <li><a href="#about"       class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">About</a></li>
+        <li><a href="#team"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Squad</a></li>
+        <li><a href="#community"   class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Community</a></li>
+        <li><a href="#milestones"  class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Gallery</a></li>
+        <li><a href="#contact"     class="px-5 py-2 bg-green-DEFAULT hover:bg-green-dark text-white text-sm font-semibold rounded-lg transition-colors tracking-widest uppercase">Contact Us</a></li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-white block transition-all duration-300" id="bar1"></span>
+        <span class="w-6 h-0.5 bg-white block transition-all duration-300" id="bar2"></span>
+        <span class="w-6 h-0.5 bg-white block transition-all duration-300" id="bar3"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-black/97 border-t border-white/10 max-h-0 opacity-0 overflow-hidden">
+      <ul class="flex flex-col px-6 py-4 gap-1">
+        <li><a href="#home"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Home</a></li>
+        <li><a href="#about"      class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">About</a></li>
+        <li><a href="#team"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Squad</a></li>
+        <li><a href="#community"  class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Community</a></li>
+        <li><a href="#milestones" class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Gallery</a></li>
+        <li><a href="#contact"    class="mobile-link block py-3 text-yellow-DEFAULT font-semibold transition-colors">Contact Us →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="home" class="hero-bg relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-24 sm:pt-28">
+
+    <div class="relative z-10 max-w-3xl mx-auto w-full hero-content">
+      <!-- Badge -->
+      <div class="inline-flex items-center justify-center gap-2 bg-yellow-DEFAULT/10 border border-yellow-DEFAULT/30 text-yellow-DEFAULT text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6 sm:mb-8">
+        <svg class="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        The Pulse of Underarm Cricket
+      </div>
+
+      <h1 class="font-black text-white leading-tight mb-5" style="font-size:clamp(2rem,5.5vw,4rem);letter-spacing:-0.02em;">
+        Torpedos Kana
+        <br/>
+        <span style="color:#c8e600;">A Legacy of Excellence</span>
+        <br/>
+        and Community
+      </h1>
+
+      <p class="text-white/90 text-base sm:text-lg max-w-xl mx-auto leading-relaxed mb-3 font-semibold">
+        Dominating the pitch since <span class="inline-block px-2.5 py-0.5 bg-white text-gray-900 font-black rounded-lg text-sm">1994</span> and empowering the next generation in Dakshina Kannada.
+      </p>
+
+      <p class="text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8 sm:mb-10" style="color:#e2e8f0;text-shadow:0 1px 6px rgba(0,0,0,0.8);">
+        From our roots in Surathkal to becoming a regional powerhouse, we blend the passion of underarm cricket with a deep commitment to social welfare.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <a href="#milestones" class="w-full sm:w-auto px-8 py-3.5 font-bold text-sm tracking-wide rounded-xl transition-all duration-200 hover:scale-[1.02] text-center" style="background:#c8e600;color:#111827;">
+          Our Achievements
+        </a>
+        <a href="#about" class="w-full sm:w-auto px-8 py-3.5 font-bold text-sm tracking-wide rounded-xl transition-all duration-200 hover:scale-[1.02] text-center" style="background:#c8e600;color:#111827;">
+          Our Story
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== STATS STRIP ===================== -->
+  <div id="stats" style="background:#0f172a;">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="reveal rounded-3xl p-3" style="background:#c8e600;">
+        <div class="bg-gray-900 rounded-2xl px-6 py-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-yellow-DEFAULT/20 text-center">
+            <div class="py-4 md:py-0 md:px-6">
+              <div class="text-4xl sm:text-5xl font-black stat-num" style="color:#c8e600;">32+</div>
+              <div class="text-gray-300 text-sm font-semibold mt-1">Years of Excellence</div>
+            </div>
+            <div class="py-4 md:py-0 md:px-6">
+              <div class="text-4xl sm:text-5xl font-black stat-num" style="color:#c8e600;">8+</div>
+              <div class="text-gray-300 text-sm font-semibold mt-1">Trophies (2025–26)</div>
+            </div>
+            <div class="py-4 md:py-0 md:px-6">
+              <div class="text-4xl sm:text-5xl font-black stat-num" style="color:#c8e600;">15+</div>
+              <div class="text-gray-300 text-sm font-semibold mt-1">Squad Players</div>
+            </div>
+            <div class="py-4 md:py-0 md:px-6">
+              <div class="text-4xl sm:text-5xl font-black stat-num" style="color:#c8e600;">50+</div>
+              <div class="text-gray-300 text-sm font-semibold mt-1">Scholarships</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="py-20 sm:py-28 bg-ink-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Heading -->
+      <div class="text-center mb-16 reveal">
+        <span class="section-accent mb-4 block mx-auto"></span>
+        <p class="text-green-DEFAULT font-bold text-sm tracking-widest uppercase mb-3">About Us</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
+          Our Genesis &amp; Evolution
+        </h2>
+        <p class="text-gray-300 text-lg max-w-xl mx-auto">Thirty plus years of cricket with passion, unity, community service and social impact — from a coastal neighbourhood to a regional powerhouse.</p>
+      </div>
+
+      <!-- Timeline cards -->
+      <div class="card rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto mb-20" style="background:#1e293b;">
+      <div class="space-y-6">
+
+        <!-- Card 1: The Beginning -->
+        <div class="reveal flex gap-6 items-start rounded-2xl p-7 sm:p-8 card" style="background:#1e293b;">
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background:#c8e600;">
+            <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="px-4 py-1 text-gray-900 text-sm font-black rounded-lg border-2 border-yellow-dark" style="background:#c8e600;">1994</span>
+              <h3 class="text-xl font-black text-white">The Beginning</h3>
+            </div>
+            <p class="text-gray-300 leading-relaxed">
+              Founded in the vibrant coastal town of <strong class="text-white">Surathkal</strong> by a group of passionate cricketers under the leadership of our inaugural captain, <strong class="text-white">Shafiulla</strong>. What started as a neighbourhood dream in Kana quickly grew into one of Dakshina Kannada's most respected cricket clubs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Core Principles -->
+        <div class="reveal flex gap-6 items-start rounded-2xl p-7 sm:p-8 card" style="background:#1e293b;">
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background:#c8e600;">
+            <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-3">Our Core Principles</h3>
+            <p class="text-gray-300 leading-relaxed mb-5">
+              Built on three unwavering pillars that have guided every decision, every match, and every community initiative since our founding day.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="card rounded-2xl px-4 py-3 text-white text-sm font-bold text-center" style="background:#0f172a;">Disciplined Excellence</div>
+              <div class="card rounded-2xl px-4 py-3 text-white text-sm font-bold text-center" style="background:#0f172a;">Uncompromising Integrity</div>
+              <div class="card rounded-2xl px-4 py-3 text-white text-sm font-bold text-center" style="background:#0f172a;">Passion for Cricket</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Evolution -->
+        <div class="reveal flex gap-6 items-start rounded-2xl p-7 sm:p-8 card" style="background:#1e293b;">
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background:#c8e600;">
+            <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-2">Evolution into a Powerhouse</h3>
+            <p class="text-gray-300 leading-relaxed">
+              What began as a neighbourhood team has evolved into a dominant force in underarm cricket. For over a decade we fielded players exclusively from Kana; as the sport grew in Mangalore, so did we — strategically welcoming talent from across the region. Today, strengthened by our partnership with <strong class="text-green-DEFAULT">Trescon</strong>, Torpedos Kana stands as a testament to sporting excellence and strategic evolution.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: Beacon of Unity -->
+        <div class="reveal flex gap-6 items-start rounded-2xl p-7 sm:p-8 card" style="background:#1e293b;">
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background:#c8e600;">
+            <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-2">A Beacon of Unity</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Established during challenging times in the 1990s, Torpedos Kana chose to stand for <strong class="text-white">inclusiveness</strong> above all else. We built a sporting environment where talent and character were the only measures — welcoming players regardless of religion, caste, or social boundary. This commitment to brotherhood remains deeply woven into our club's fabric to this day.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+      <!-- Three pillars -->
+      <div class="flex flex-col sm:flex-row justify-center gap-8">
+
+        <div class="card reveal rounded-2xl p-8 text-center w-full sm:w-80" style="background:#1e293b;">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:#c8e600;">
+            <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Community Impact</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">Making a positive difference through sports, education support, and community service programs across Dakshina Kannada.</p>
+        </div>
+
+        <div class="card reveal rounded-2xl p-8 text-center w-full sm:w-80" style="background:#1e293b;">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:#c8e600;">
+            <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Brotherhood &amp; Unity</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">Promoting local culture and welcoming every player across all backgrounds — talent and character are our only measures.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRESIDENT QUOTE ===================== -->
+  <section class="py-20 sm:py-28 bg-ink-800 relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5" style="background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px;"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+
+        <!-- Quote -->
+        <div class="flex-1 reveal">
+          <div class="mb-6" style="color:#c8e600;">
+            <svg width="52" height="40" viewBox="0 0 52 40" fill="currentColor"><path d="M0 40V24.727C0 10.909 8.727 2.909 26.182 0l3.272 5.091C20.364 7.273 15.636 12 14.545 19.636H22V40H0zm30 0V24.727C30 10.909 38.727 2.909 56.182 0l3.272 5.091C50.364 7.273 45.636 12 44.545 19.636H52V40H30z" transform="scale(0.9)"/></svg>
+          </div>
+          <p class="text-white text-xl sm:text-2xl font-bold leading-relaxed mb-6" style="font-style:italic;">
+            "At Torpedos Kana, we're not just building a team, we're building a community. We're dedicated to fostering a spirit of camaraderie, discipline, and passion for the game. As President, I'm committed to supporting our players, support staff and members in their pursuit of excellence, both on and off the field."
+          </p>
+          <p class="text-white/90 text-lg leading-relaxed" style="font-style:italic;">
+            "We're also committed to making a positive impact in our community. We're proud to have provided the ground floor of our club building, free of cost, to run an Anganwadi school. It's heartening to see over 20 young students benefiting from this initiative, and we're honored to play a small part in shaping their futures."
+          </p>
+        </div>
+
+        <!-- Photo -->
+        <div class="reveal flex flex-col items-center flex-shrink-0">
+          <div class="w-44 h-44 rounded-2xl border-4 overflow-hidden mb-5 shadow-2xl" style="border-color:#c8e600; background:#1e293b;">
+            <img src="https://torpedoskana.com/saleem-fia.png" alt="Mohammed Saleem — President, Torpedos Kana" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-2xl font-black text-white mb-1">Mohammed Saleem</h3>
+          <p class="font-semibold text-base" style="color:#c8e600;">President, Torpedos Kana</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EVOLUTION SECTIONS ===================== -->
+  <section class="py-20 bg-ink-800"
+>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <div class="reveal card rounded-3xl p-8 sm:p-10 text-center" style="background:#1e293b;">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Legacy</h2>
+        <div class="section-accent mx-auto mb-6"></div>
+        <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
+          One of our proudest achievements stands as a testament to the vision of our beloved late leader, <strong class="text-white">S Mohammed Suratkal (Liberty)</strong>. The public gymnasium we built was his dream — a space where Kana's youth could gather to build not just their physical strength, but also forge bonds of unity and fellowship.
+        </p>
+      </div>
+
+      <div class="reveal card rounded-3xl p-8 sm:p-10 text-center" style="background:#1e293b;">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Pioneering Player Welfare</h2>
+        <div class="section-accent mx-auto mb-6"></div>
+        <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
+          Torpedos Kana became the <strong class="text-white">first club</strong> to implement a structured monthly salary system for players, with compensation tied to performance grades — revolutionizing the landscape of underarm cricket and setting new standards for player welfare.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== TRESCON PARTNERSHIP ===================== -->
+  <section id="community" class="py-20 sm:py-28 bg-ink-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Heading -->
+      <div class="text-center mb-14 reveal">
+        <span class="section-accent mb-4 block mx-auto"></span>
+        <p class="font-bold text-sm tracking-widest uppercase mb-3" style="color:#c8e600;">Torpedos Kana &amp; Trescon Foundation</p>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">Empowering Potential</h2>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+          In proud partnership with the Trescon Foundation, we are committed to breaking the cycle of educational inequity — ensuring students from marginalized and backward communities have the financial backing and professional mentorship they need to succeed.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+
+        <!-- Card 1: Financial Empowerment -->
+        <div class="reveal card rounded-2xl p-8 sm:p-10" style="background:#0f172a;">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background:#c8e600;">
+              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white">1. Financial Empowerment: Scholarships &amp; Fee Support</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-6">Through this collaborative effort, we provide a robust safety net for students who possess merit and drive but lack the financial resources to pursue higher education.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <span class="font-bold text-white">Comprehensive Scholarships:</span>
+                <span class="text-gray-300"> Jointly funded tuition support, covering books and essential learning materials for school and college-level education.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <span class="font-bold text-white">Direct Fee Assistance:</span>
+                <span class="text-gray-300"> A streamlined process to assist students facing immediate financial hurdles to prevent dropouts.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <span class="font-bold text-white">Community-Specific Outreach:</span>
+                <span class="text-gray-300"> Targeted support for students from historically underserved communities to promote inclusivity in professional sectors.</span>
+              </div>
+            </li>
+          </ul>
+          <!-- Pull quote -->
+          <div class="mt-8 border-l-4 pl-5" style="border-color:#c8e600;">
+            <p class="text-gray-300 italic leading-relaxed">"Our partnership with Trescon Foundation allows us to double our impact, moving from mere financial aid to sustainable community empowerment."</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Career Counseling -->
+        <div class="reveal card rounded-2xl p-8 sm:p-10" style="background:#0f172a;">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background:#c8e600;">
+              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-white">2. Navigating the Future: Career Counseling &amp; Guidance</h3>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-6">The Torpedos Kana &amp; Trescon Foundation alliance focuses on bridging the "guidance gap." We provide the networks and mentorship often missing for students from backward communities.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <span class="font-bold text-white">Joint Mentorship Programs:</span>
+                <span class="text-gray-300"> Access to a wider network of professionals from both organizations providing real-world insights.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <span class="font-bold text-white">Personalized Career Roadmaps:</span>
+                <span class="text-gray-300"> Individualized counseling to identify strengths and navigate entrance exams or university applications.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <span class="font-bold text-white">Employability Skill Workshops:</span>
+                <span class="text-gray-300"> Combined resources to offer training in soft skills, digital literacy, and interview techniques.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Shared Philosophy -->
+        <div class="reveal card rounded-2xl p-8 sm:p-10 text-center" style="background:#0f172a;">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="background:#c8e600;">
+            <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-black text-white mb-4">Our Shared Philosophy</h3>
+          <blockquote class="max-w-2xl mx-auto border-l-4 pl-6 py-2" style="border-color:#c8e600;">
+            <p class="text-gray-300 leading-relaxed text-lg" style="font-style:italic;">
+              The collaboration between Torpedos Kana and the Trescon Foundation is built on the belief that <strong class="text-white">collective action creates lasting change</strong>. We remove the barriers of cost and lack of information, allowing students to focus on what matters most: their growth and their future.
+            </p>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TEAM ===================== -->
+  <section id="team" class="py-20 sm:py-28 bg-ink-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section heading -->
+      <div class="text-center mb-16 reveal">
+        <span class="section-accent mb-4 block mx-auto"></span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Meet the Squad</h2>
+        <p class="text-gray-300 text-lg max-w-xl mx-auto">The players who wear the Torpedos Kana colours with pride.</p>
+      </div>
+      <div class="card rounded-3xl p-6 sm:p-8" style="background:#1e293b;">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/basith-captain.jpg" alt="Basith — Captain" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Basith</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 text-black text-xs font-bold rounded-full" style="background:#c8e600;">Captain</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/shakeer-vice-captain.jpg" alt="Shakeer — Vice Captain" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Shakeer</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 text-black text-xs font-bold rounded-full" style="background:#c8e600;">Vice Captain</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/mansoor-wicket-keeper.jpg" alt="Mansoor" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Mansoor</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">Wicket Keeper</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/imthiyaz.jpg" alt="Imthiyaz" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Imthiyaz</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">All Rounder</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/akram.jpg" alt="Akram" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Akram</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">Batsman</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/ashraf.jpg" alt="Ashraf" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Ashraf</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">Batsman</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/thanveer.jpg" alt="Thanveer" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Thanveer</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">Batsman</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/ashvin.jpg" alt="Ashwin" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Ashwin</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">All Rounder</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/Chetan.jpeg" alt="Chethan" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Chethan</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">All Rounder</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/haris.jpg" alt="Haris" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Haris</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">All Rounder</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/sharan.jpg" alt="Sharan" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Sharan</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">Bowler</span>
+          </div>
+        </div>
+
+        <div class="player-card card reveal rounded-2xl overflow-hidden" style="background:#1e293b;">
+          <div class="aspect-square overflow-hidden">
+            <img src="https://torpedoskana.com/pradeep.jpg" alt="Pradeep" class="player-img w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-white text-sm">Pradeep</h3>
+            <span class="mt-2 inline-block px-2 py-0.5 bg-green-DEFAULT text-white text-xs font-semibold rounded-full">Batsman</span>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ACHIEVEMENTS & GALLERY ===================== -->
+  <section id="milestones" data-gallery="gallery" class="py-20 sm:py-28 bg-ink-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="section-accent mb-4 block mx-auto"></span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white">Photo Gallery</h2>
+        <p class="text-gray-300 mt-3">Moments that define our journey</p>
+      </div>
+
+      <!-- Sub-section tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+        <button onclick="switchTab('trophies')" onkeydown="if(event.key==='Enter'||event.key===' ')switchTab('trophies')" id="tab-trophies" class="gallery-tab px-6 py-2.5 text-sm font-bold rounded-full border-2 transition-all" style="background:#c8e600;border-color:#c8e600;color:#111827;">Trophies</button>
+        <button onclick="switchTab('photos')" onkeydown="if(event.key==='Enter'||event.key===' ')switchTab('photos')" id="tab-photos" class="gallery-tab px-6 py-2.5 text-sm font-bold rounded-full border-2 transition-all" style="background:transparent;border-color:#c8e600;color:#c8e600;">Photos</button>
+        <button onclick="switchTab('videos')" onkeydown="if(event.key==='Enter'||event.key===' ')switchTab('videos')" id="tab-videos" class="gallery-tab px-6 py-2.5 text-sm font-bold rounded-full border-2 transition-all" style="background:transparent;border-color:#c8e600;color:#c8e600;">Videos</button>
+      </div>
+
+      <!-- Trophies panel -->
+      <div id="panel-trophies" class="gallery-panel">
+      <div class="card rounded-2xl p-6 sm:p-8" style="background:#1e293b;">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+          <div class="relative h-56 overflow-hidden">
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-black rounded" style="background:#0f172a;color:#c8e600;">WINNERS</span>
+            <img src="https://torpedoskana.com/azad-trophy-2024.jpg" alt="Azad Trophy 2024" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 text-left">
+            <div class="flex items-center gap-2 mb-2">              <span class="text-gray-300 text-xs">17 Nov 2024</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-1">Azad Trophy 2024</h3>
+            <p class="text-gray-300 text-sm">Winners at 2nd block, Katipalla</p>
+          </div>
+        </div>
+
+        <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+          <div class="relative h-56 overflow-hidden">
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-black rounded" style="background:#0f172a;color:#c8e600;">WINNERS</span>
+            <img src="https://torpedoskana.com/elmas-trophy-2024.jpg" alt="Elmas Trophy 2024" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 text-left">
+            <div class="flex items-center gap-2 mb-2">              <span class="text-gray-300 text-xs">22 Sep 2024</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-1">Elmas Trophy 2024</h3>
+            <p class="text-gray-300 text-sm">Karnataka Premier League — BGS Stadium, Bengaluru</p>
+          </div>
+        </div>
+
+        <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+          <div class="relative h-56 overflow-hidden">
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-black rounded" style="background:#0f172a;color:#c8e600;">WINNERS</span>
+            <img src="https://torpedoskana.com/konaje-friends-trophy-2024.jpeg" alt="Konaje Friends Trophy 2024" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 text-left">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-gray-300 text-xs">4 Mar 2024</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-1">Konaje Friends Trophy 2024</h3>
+          </div>
+        </div>
+
+        <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+          <div class="relative h-56 overflow-hidden">
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-black rounded" style="background:#0f172a;color:#c8e600;">WINNERS</span>
+            <img src="https://torpedoskana.com/youth-friends-vamadapadavu-trophy-2023.jpeg" alt="Youth Friends Vamadapadavu Trophy 2023" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 text-left">
+            <div class="flex items-center gap-2 mb-2">              <span class="text-gray-300 text-xs">27 Nov 2023</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-1">Youth Friends Vamadapadavu 2023</h3>
+            <p class="text-gray-300 text-sm">Jointly organised by Youth Friends and Young Star Vamadapadavu</p>
+          </div>
+        </div>
+
+        <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+          <div class="relative h-56 overflow-hidden">
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-black rounded" style="background:#0f172a;color:#c8e600;">WINNERS</span>
+            <img src="https://torpedoskana.com/trishool-kumble-trophy-2023.jpeg" alt="Trishool Trophy 2023" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 text-left">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-gray-300 text-xs">6 Mar 2023</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-1">Trishool Trophy 2023</h3>
+            <p class="text-gray-300 text-sm">G.S.B.S. School Ground, Kumble</p>
+          </div>
+        </div>
+
+        <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+          <div class="relative h-56 overflow-hidden">
+            <span class="absolute top-3 left-3 z-10 px-3 py-1 text-xs font-black rounded" style="background:#0f172a;color:#c8e600;">WINNERS</span>
+            <img src="https://torpedoskana.com/yfc-Bajal-brophy-2023.jpeg" alt="YFC Bajal Trophy 2023" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6 text-left">
+            <div class="flex items-center gap-2 mb-2">              <span class="text-gray-300 text-xs">5 Feb 2023</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-1">YFC Bajal Trophy 2023</h3>
+            <p class="text-gray-300 text-sm">Champions at Mangaluru</p>
+          </div>
+        </div>
+
+      </div>
+      </div><!-- end grid -->
+      </div><!-- end outer box -->
+      </div><!-- end trophies panel -->
+
+      <!-- Photos panel -->
+      <div id="panel-photos" class="gallery-panel hidden">
+      <div class="card rounded-2xl p-6 sm:p-8" style="background:#1e293b;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+            <div class="h-56 overflow-hidden flex items-center justify-center" style="background:#1e293b;">
+              <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="p-6 text-left">
+              <p class="text-gray-400 text-sm">Coming soon</p>
+            </div>
+          </div>
+
+          <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+            <div class="h-56 overflow-hidden flex items-center justify-center" style="background:#1e293b;">
+              <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="p-6 text-left">
+              <p class="text-gray-400 text-sm">Coming soon</p>
+            </div>
+          </div>
+
+          <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+            <div class="h-56 overflow-hidden flex items-center justify-center" style="background:#1e293b;">
+              <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="p-6 text-left">
+              <p class="text-gray-400 text-sm">Coming soon</p>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end outer box -->
+      </div><!-- end photos panel -->
+
+      <!-- Videos panel -->
+      <div id="panel-videos" class="gallery-panel hidden">
+      <div class="card rounded-2xl p-6 sm:p-8" style="background:#1e293b;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+            <div class="h-56 overflow-hidden flex items-center justify-center" style="background:#1e293b;">
+              <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+            </div>
+            <div class="p-6 text-left">
+              <p class="text-gray-400 text-sm">Coming soon</p>
+            </div>
+          </div>
+
+          <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+            <div class="h-56 overflow-hidden flex items-center justify-center" style="background:#1e293b;">
+              <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+            </div>
+            <div class="p-6 text-left">
+              <p class="text-gray-400 text-sm">Coming soon</p>
+            </div>
+          </div>
+
+          <div class="trophy-card card reveal rounded-2xl overflow-hidden transition-all duration-300" style="background:#0f172a;">
+            <div class="h-56 overflow-hidden flex items-center justify-center" style="background:#1e293b;">
+              <svg class="w-14 h-14 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+            </div>
+            <div class="p-6 text-left">
+              <p class="text-gray-400 text-sm">Coming soon</p>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end outer box -->
+      </div><!-- end videos panel -->
+
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center hidden" onclick="closeLightbox()">
+      <button class="absolute top-4 right-4 text-white/70 hover:text-white z-10" onclick="closeLightbox()" aria-label="Close lightbox">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <button class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-10" onclick="event.stopPropagation(); prevImage()" aria-label="Previous image">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white z-10" onclick="event.stopPropagation(); nextImage()" aria-label="Next image">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-xl shadow-2xl" onclick="event.stopPropagation()" />
+      <p id="lightbox-caption" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium"></p>
+    </div>
+  </section>
+
+  <!-- ===================== JOIN COMMUNITY CTA ===================== -->
+  <section class="py-16 bg-ink-900">
+    <div class="max-w-2xl mx-auto px-4 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">Join Our Community</h2>
+      <p class="text-gray-300 mb-8">Follow us on Instagram for the latest updates, match highlights, and community events.</p>
+      <a href="https://www.instagram.com/torpedoskana?igsh=OGJ1ZHdwcDFkdDB4" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-3 px-10 py-4 font-black text-lg rounded-full transition-all duration-200 hover:scale-[1.03] shadow-xl" style="background:#c8e600;color:#111827;">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        JOIN OUR COMMUNITY
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="py-20 sm:py-28 bg-ink-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="section-accent mb-4 block mx-auto"></span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white">Get in Touch</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+
+        <div class="reveal text-center card rounded-2xl p-8" style="background:#0f172a;">
+          <div class="w-14 h-14 bg-yellow-DEFAULT rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-7 h-7 text-green-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2">Email Us</h3>
+          <a href="mailto:info@torpedoskana.com" class="text-green-DEFAULT hover:text-green-dark font-semibold text-sm transition-colors">info@torpedoskana.com</a>
+        </div>
+
+        <div class="reveal text-center card rounded-2xl p-8" style="background:#0f172a;">
+          <div class="w-14 h-14 bg-yellow-DEFAULT rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-7 h-7 text-green-DEFAULT" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-3">Follow Us</h3>
+          <a href="https://www.instagram.com/torpedoskana?igsh=OGJ1ZHdwcDFkdDB4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all hover:scale-105" style="background:#c8e600;color:#111827;">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @torpedoskana
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-ink-900 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="https://torpedoskana.com/torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="h-14 sm:h-20 w-auto" />
+        </div>
+        <p class="text-gray-400 text-sm text-center">
+          © 2026 Torpedos Kana. All rights reserved.
+        </p>
+        <a href="mailto:info@torpedoskana.com" class="text-green-DEFAULT hover:text-yellow-DEFAULT font-semibold text-sm transition-colors">
+          info@torpedoskana.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+          mobileMenu.style.opacity = '1';
+        });
+        bar1.style.transform = 'translateY(7px) rotate(45deg)';
+        bar2.style.opacity = '0';
+        bar3.style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        mobileMenu.style.maxHeight = '0';
+        mobileMenu.style.opacity = '0';
+        bar1.style.transform = '';
+        bar2.style.opacity = '';
+        bar3.style.transform = '';
+        setTimeout(() => { if (!menuOpen) mobileMenu.classList.add('hidden'); }, 350);
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.style.maxHeight = '0';
+        mobileMenu.style.opacity = '0';
+        bar1.style.transform = '';
+        bar2.style.opacity = '';
+        bar3.style.transform = '';
+        setTimeout(() => mobileMenu.classList.add('hidden'), 350);
+      });
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 60 * (Array.from(entry.target.parentElement?.children || [entry.target]).indexOf(entry.target) % 4));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Gallery filter
+    function switchTab(name) {
+      document.querySelectorAll('.gallery-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('panel-' + name).classList.remove('hidden');
+      document.querySelectorAll('.gallery-tab').forEach(btn => {
+        btn.style.background = 'transparent';
+        btn.style.color = '#c8e600';
+      });
+      const active = document.getElementById('tab-' + name);
+      active.style.background = '#c8e600';
+      active.style.color = '#111827';
+    }
+
+
+
+    // Lightbox
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      const caption = el.querySelector('.absolute span')?.textContent || '';
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbCaption = document.getElementById('lightbox-caption');
+
+      // Build list of visible images
+      currentImages = Array.from(document.querySelectorAll('.gallery-item:not([style*="none"]) img'));
+      currentIndex = currentImages.indexOf(img);
+
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = caption;
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      const img = currentImages[currentIndex];
+      document.getElementById('lightbox-img').src = img.src;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      const img = currentImages[currentIndex];
+      document.getElementById('lightbox-img').src = img.src;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (lb.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
+  </script>
+</body>
+</html>
