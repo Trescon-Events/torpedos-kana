@@ -132,6 +132,7 @@
         <li><a href="#team"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Squad</a></li>
         <li><a href="#community"   class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Community</a></li>
         <li><a href="#milestones"  class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Gallery</a></li>
+        <li><a href="#news"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">News</a></li>
         <li><a href="#contact"     class="px-5 py-2 bg-green-DEFAULT hover:bg-green-dark text-white text-sm font-semibold rounded-lg transition-colors tracking-widest uppercase">Contact Us</a></li>
       </ul>
 
@@ -151,30 +152,37 @@
         <li><a href="#team"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Squad</a></li>
         <li><a href="#community"  class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Community</a></li>
         <li><a href="#milestones" class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Gallery</a></li>
+        <li><a href="#news"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">News</a></li>
         <li><a href="#contact"    class="mobile-link block py-3 text-yellow-DEFAULT font-semibold transition-colors">Contact Us →</a></li>
       </ul>
     </div>
   </header>
 
   <!-- ===================== HERO ===================== -->
-  <section id="home" class="hero-bg relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-24 sm:pt-28 pb-10 sm:pb-14">
+  <section id="home" class="hero-bg relative flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-24 sm:pt-28 pb-10 sm:pb-12" style="min-height:100svh;">
 
     <div class="relative z-10 max-w-3xl mx-auto w-full hero-content">
-      <img src="torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="mx-auto mb-5 sm:mb-7 w-auto" style="height:clamp(7rem,16vw,11rem);" />
+      <img src="torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="mx-auto mb-4 sm:mb-6 w-auto" style="height:clamp(9rem,20vw,15rem);" />
 
       <h1 class="font-black text-white leading-tight mb-5" style="font-size:clamp(1.75rem,5.5vw,4.5rem);letter-spacing:-0.02em;white-space:nowrap;">
-        <span style="color:#c8e600;">A Legacy of Excellence</span>
+        <span style="color:#c8e600;">Built on Cricket,</span>
         <br/>
-        and Community
+        Driven by Purpose
       </h1>
 
-      <p class="text-white/90 text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-2 font-semibold">
-        Dominating the pitch since <span class="inline-block px-2 py-0.5 bg-white text-gray-900 font-black rounded-md text-xs sm:text-sm">1994</span> and empowering the next generation in Dakshina Kannada.
-      </p>
-
-      <p class="text-xs sm:text-sm max-w-xl mx-auto leading-relaxed" style="color:#e2e8f0;text-shadow:0 1px 6px rgba(0,0,0,0.8);">
-        From our roots in Surathkal to becoming a regional powerhouse, we blend the passion of underarm cricket with a deep commitment to social welfare.
-      </p>
+      <div class="reveal flex flex-col items-center gap-4 mx-auto">
+        <div class="flex items-center gap-3">
+          <span class="h-px w-10 sm:w-16" style="background:#c8e600;"></span>
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#c8e600;"></span>
+          <span class="h-px w-10 sm:w-16" style="background:#c8e600;"></span>
+        </div>
+        <p class="text-white font-bold leading-snug max-w-2xl" style="font-size:clamp(1.1rem,2.6vw,1.65rem);text-shadow:0 1px 6px rgba(0,0,0,0.85);">
+          Where Cricket Builds <span style="color:#c8e600;">Champions</span> and <span style="color:#c8e600;">Communities</span>
+        </p>
+        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm tracking-[0.25em] uppercase font-black shadow-lg" style="background:#c8e600;color:#111827;">
+          Since 1994
+        </span>
+      </div>
     </div>
 
   </section>
@@ -208,7 +216,7 @@
   </div>
 
   <!-- ===================== ABOUT ===================== -->
-  <section id="about" class="py-20 sm:py-28 bg-ink-800">
+  <section id="about" class="py-12 sm:py-16 bg-ink-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Heading -->
@@ -312,7 +320,7 @@
   </section>
 
   <!-- ===================== PRESIDENT QUOTE ===================== -->
-  <section class="py-20 sm:py-28 bg-ink-800 relative overflow-hidden">
+  <section class="py-12 sm:py-16 bg-ink-800 relative overflow-hidden">
     <!-- Background pattern -->
     <div class="absolute inset-0 opacity-5" style="background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px;"></div>
 
@@ -346,16 +354,22 @@
   </section>
 
   <!-- ===================== EVOLUTION SECTIONS ===================== -->
-  <section class="py-20 bg-ink-800"
->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+  <section class="py-12 bg-ink-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
-      <div class="reveal card rounded-3xl p-8 sm:p-10 text-center" style="background:#1e293b;">
-        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Legacy</h2>
-        <div class="section-accent mx-auto mb-6"></div>
-        <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-          One of our proudest achievements stands as a testament to the vision of our beloved late leader, <strong class="text-white">S Mohammed Suratkal (Liberty)</strong>. The public gymnasium we built was his dream — a space where Kana's youth could gather to build not just their physical strength, but also forge bonds of unity and fellowship.
-        </p>
+      <div class="reveal card rounded-3xl p-6 sm:p-8" style="background:#1e293b;">
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+          <div class="text-center md:text-left order-2 md:order-1">
+            <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">Legacy</h2>
+            <div class="section-accent mb-5 mx-auto md:mx-0"></div>
+            <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+              One of our proudest achievements stands as a testament to the vision of our beloved late leader, <strong class="text-white">S Mohammed Suratkal (Liberty)</strong>. The public gymnasium we built was his dream — a space where Kana's youth could gather to build not just their physical strength, but also forge bonds of unity and fellowship.
+            </p>
+          </div>
+          <div class="rounded-2xl overflow-hidden order-1 md:order-2">
+            <img src="torpedos-youth-club.jpg" alt="Torpedos Youth Club (R) — Kana Surathkal" class="w-full h-full object-cover" style="max-height:340px;" loading="lazy" />
+          </div>
+        </div>
       </div>
 
       <div class="reveal card rounded-3xl p-8 sm:p-10 text-center" style="background:#1e293b;">
@@ -370,13 +384,17 @@
   </section>
 
   <!-- ===================== TRESCON PARTNERSHIP ===================== -->
-  <section id="community" class="py-20 sm:py-28 bg-ink-800">
+  <section id="community" class="py-12 sm:py-16 bg-ink-800">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Heading -->
       <div class="text-center mb-14 reveal">
+        <div class="flex items-center justify-center gap-4 sm:gap-6 mb-5">
+          <img src="torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="h-12 sm:h-16 w-auto" />
+          <span class="text-yellow-DEFAULT text-2xl font-black" style="color:#c8e600;">&times;</span>
+          <img src="trescon-foundation-logo.svg" alt="Trescon Foundation" class="h-10 sm:h-12 w-auto bg-white rounded-md px-3 py-1.5" />
+        </div>
         <span class="section-accent mb-4 block mx-auto"></span>
-        <p class="font-bold text-sm tracking-widest uppercase mb-3" style="color:#c8e600;">Torpedos Kana &amp; Trescon Foundation</p>
         <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">Empowering Potential</h2>
         <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
           In proud partnership with the Trescon Foundation, we are committed to breaking the cycle of educational inequity — ensuring students from marginalized and backward communities have the financial backing and professional mentorship they need to succeed.
@@ -487,15 +505,25 @@
   </section>
 
   <!-- ===================== TEAM ===================== -->
-  <section id="team" class="py-20 sm:py-28 bg-ink-900">
+  <section id="team" class="py-12 sm:py-16 bg-ink-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Section heading -->
-      <div class="text-center mb-16 reveal">
+      <div class="text-center mb-10 reveal">
         <span class="section-accent mb-4 block mx-auto"></span>
         <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Meet the Squad</h2>
         <p class="text-gray-300 text-lg max-w-xl mx-auto">The players who wear the Torpedos Kana colours with pride.</p>
       </div>
+
+      <!-- Sub-section tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+        <button onclick="switchSquadTab('team')" onkeydown="if(event.key==='Enter'||event.key===' ')switchSquadTab('team')" id="squad-tab-team" class="squad-tab px-6 py-2.5 text-sm font-bold rounded-full border-2 transition-all" style="background:#c8e600;border-color:#c8e600;color:#111827;">Team</button>
+        <button onclick="switchSquadTab('legends')" onkeydown="if(event.key==='Enter'||event.key===' ')switchSquadTab('legends')" id="squad-tab-legends" class="squad-tab px-6 py-2.5 text-sm font-bold rounded-full border-2 transition-all" style="background:transparent;border-color:#c8e600;color:#c8e600;">Legends</button>
+        <button onclick="switchSquadTab('management')" onkeydown="if(event.key==='Enter'||event.key===' ')switchSquadTab('management')" id="squad-tab-management" class="squad-tab px-6 py-2.5 text-sm font-bold rounded-full border-2 transition-all" style="background:transparent;border-color:#c8e600;color:#c8e600;">Management</button>
+      </div>
+
+      <!-- Team panel -->
+      <div id="squad-panel-team" class="squad-panel">
       <div class="card rounded-3xl p-6 sm:p-8" style="background:#1e293b;">
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
 
@@ -661,11 +689,33 @@
 
       </div>
       </div>
+      </div>
+
+      <!-- Legends panel -->
+      <div id="squad-panel-legends" class="squad-panel hidden">
+        <div class="card rounded-3xl p-6 sm:p-8" style="background:#1e293b;">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            <!-- Legend cards will be added here -->
+          </div>
+          <p class="text-gray-400 text-center text-sm mt-4">Photos coming soon.</p>
+        </div>
+      </div>
+
+      <!-- Management panel -->
+      <div id="squad-panel-management" class="squad-panel hidden">
+        <div class="card rounded-3xl p-6 sm:p-8" style="background:#1e293b;">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            <!-- Management cards will be added here -->
+          </div>
+          <p class="text-gray-400 text-center text-sm mt-4">Photos coming soon.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ===================== ACHIEVEMENTS & GALLERY ===================== -->
-  <section id="milestones" data-gallery="gallery" class="py-20 sm:py-28 bg-ink-900">
+  <section id="milestones" data-gallery="gallery" class="py-12 sm:py-16 bg-ink-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
         <span class="section-accent mb-4 block mx-auto"></span>
@@ -859,8 +909,68 @@
     </div>
   </section>
 
+  <!-- ===================== NEWS ===================== -->
+  <section id="news" class="py-12 sm:py-16 bg-ink-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-10 reveal">
+        <span class="section-accent mb-4 block mx-auto"></span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">In The News</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto">Stories featuring Torpedos Kana and our partner, the Trescon Foundation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+
+        <!-- Article 1 -->
+        <a href="https://theprint.in/ani-press-releases/from-bengaluru-to-the-global-stage-trescon-completes-10-years-of-building-government-backed-business-platforms-across-asia-and-the-middle-east/2865690/" target="_blank" rel="noopener noreferrer"
+           class="reveal card rounded-2xl p-6 sm:p-7 block transition-all" style="background:#1e293b;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-black tracking-widest uppercase" style="color:#c8e600;">ThePrint</span>
+            <span class="text-gray-400 text-xs">Feb 2026</span>
+          </div>
+          <h3 class="font-bold text-white text-lg leading-snug mb-2">Trescon Completes 10 Years of Building Government-Backed Business Platforms Across Asia and the Middle East</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">From Bengaluru to the global stage — a decade of connecting governments, enterprises and innovators.</p>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="https://www.observerdubai.com/2025/04/28/from-selling-sim-cards-to-shaping-global-tech-conversations-the-story-of-mohammed-saleem-founder-chairman-of-trescon/" target="_blank" rel="noopener noreferrer"
+           class="reveal card rounded-2xl p-6 sm:p-7 block transition-all" style="background:#1e293b;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-black tracking-widest uppercase" style="color:#c8e600;">Observer Dubai</span>
+            <span class="text-gray-400 text-xs">Apr 2025</span>
+          </div>
+          <h3 class="font-bold text-white text-lg leading-snug mb-2">From Selling SIM Cards to Shaping Global Tech Conversations — The Story of Mohammed Saleem</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Founder &amp; Chairman of Trescon — and President of Torpedos Kana — on building from Mangalore to the world.</p>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="https://tresconfoundation.com/" target="_blank" rel="noopener noreferrer"
+           class="reveal card rounded-2xl p-6 sm:p-7 block transition-all" style="background:#1e293b;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-black tracking-widest uppercase" style="color:#c8e600;">Trescon Foundation</span>
+            <span class="text-gray-400 text-xs">Ongoing</span>
+          </div>
+          <h3 class="font-bold text-white text-lg leading-snug mb-2">Smart One Thousand — Transforming Classrooms Across Rural India</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">In partnership with Yuva Unstoppable, upgrading 1,000+ Anganwadi classrooms with smart boards, hygiene and teacher training.</p>
+        </a>
+
+        <!-- Article 4 -->
+        <a href="https://tresconfoundation.com/" target="_blank" rel="noopener noreferrer"
+           class="reveal card rounded-2xl p-6 sm:p-7 block transition-all" style="background:#1e293b;">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-black tracking-widest uppercase" style="color:#c8e600;">Trescon Foundation</span>
+            <span class="text-gray-400 text-xs">2025</span>
+          </div>
+          <h3 class="font-bold text-white text-lg leading-snug mb-2">50+ Scholarships Awarded to Underprivileged Students</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The foundation's scholarship programme continues to support underserved children annually — including students from Mangalore.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== JOIN COMMUNITY CTA ===================== -->
-  <section class="py-16 bg-ink-900">
+  <section class="py-10 bg-ink-900">
     <div class="max-w-2xl mx-auto px-4 text-center reveal">
       <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">Join Our Community</h2>
       <p class="text-gray-300 mb-8">Follow us on Instagram for the latest updates, match highlights, and community events.</p>
@@ -873,7 +983,7 @@
   </section>
 
   <!-- ===================== CONTACT ===================== -->
-  <section id="contact" class="py-20 sm:py-28 bg-ink-900">
+  <section id="contact" class="py-12 sm:py-16 bg-ink-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 reveal">
         <span class="section-accent mb-4 block mx-auto"></span>
@@ -908,8 +1018,10 @@
   <footer class="bg-ink-900 py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-4">
           <img src="torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="h-14 sm:h-20 w-auto" />
+          <span class="text-gray-500 text-xl font-light">|</span>
+          <img src="trescon-foundation-logo.svg" alt="Trescon Foundation" class="h-8 sm:h-12 w-auto bg-white rounded-md px-3 py-1.5" />
         </div>
         <p class="text-gray-400 text-sm text-center">
           © 2026 Torpedos Kana. All rights reserved.
@@ -994,6 +1106,19 @@
         btn.style.color = '#c8e600';
       });
       const active = document.getElementById('tab-' + name);
+      active.style.background = '#c8e600';
+      active.style.color = '#111827';
+    }
+
+    // Squad filter (Team / Legends / Management)
+    function switchSquadTab(name) {
+      document.querySelectorAll('.squad-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('squad-panel-' + name).classList.remove('hidden');
+      document.querySelectorAll('.squad-tab').forEach(btn => {
+        btn.style.background = 'transparent';
+        btn.style.color = '#c8e600';
+      });
+      const active = document.getElementById('squad-tab-' + name);
       active.style.background = '#c8e600';
       active.style.color = '#111827';
     }
