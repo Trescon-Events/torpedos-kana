@@ -52,9 +52,39 @@
     #navbar.scrolled { background: rgba(0,0,0,0.97) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
 
     /* Nav link hover */
-    .nav-link { position:relative; }
-    .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:#c8e600; transition:width 0.25s ease; }
+    .nav-link { position:relative; transition: color 0.25s ease, text-shadow 0.25s ease; }
+    .nav-link::after {
+      content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
+      width:0; height:2px; background:#c8e600; border-radius:2px;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 8px rgba(200,230,0,0.55);
+    }
+    .nav-link:hover { text-shadow: 0 0 12px rgba(200,230,0,0.45); }
     .nav-link:hover::after { width:100%; }
+    .nav-cta {
+      background:#c8e600; color:#111827;
+      box-shadow: 0 0 0 1px rgba(200,230,0,0.4), 0 6px 18px rgba(200,230,0,0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 1px rgba(200,230,0,0.7), 0 8px 24px rgba(200,230,0,0.55);
+    }
+    .navbar-shell {
+      background: linear-gradient(180deg, rgba(7,11,20,0.85) 0%, rgba(7,11,20,0.7) 100%);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      border-bottom: 1px solid rgba(200,230,0,0.18);
+    }
+    .menu-btn-shell {
+      border: 1px solid rgba(200,230,0,0.35);
+      border-radius: 10px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .menu-btn-shell:hover {
+      border-color: rgba(200,230,0,0.8);
+      box-shadow: 0 0 14px rgba(200,230,0,0.3);
+    }
 
     /* Hero */
     .hero-bg {
@@ -69,16 +99,33 @@
     .reveal { opacity:0; transform:translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    /* Cards */
+    /* Cards — unified pulsing glow */
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(200,230,0,0.35), 0 0 24px rgba(200,230,0,0.18), 0 0 60px rgba(200,230,0,0.12); }
+      50%      { box-shadow: 0 0 0 1px rgba(200,230,0,0.55), 0 0 36px rgba(200,230,0,0.32), 0 0 90px rgba(200,230,0,0.22); }
+    }
     .card {
       border: 3px solid rgba(200,230,0,0.55) !important;
-      box-shadow: 0 0 10px rgba(200,230,0,0.08);
+      animation: glow-pulse 3.5s ease-in-out infinite;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
     .card:hover {
+      animation: none;
       transform: translateY(-4px);
       border-color: #c8e600 !important;
-      box-shadow: 0 0 0 2px rgba(200,230,0,0.6), 0 0 28px rgba(200,230,0,0.4), 0 8px 32px rgba(0,0,0,0.4) !important;
+      box-shadow: 0 0 0 2px rgba(200,230,0,0.7), 0 0 40px rgba(200,230,0,0.5), 0 0 100px rgba(200,230,0,0.32), 0 12px 36px rgba(0,0,0,0.45) !important;
+    }
+    .glow-card { /* alias kept for backwards-compat */ }
+
+    /* Subtler glow for inner tiles inside Empowering Potential cards */
+    @keyframes glow-tile-pulse {
+      0%, 100% { box-shadow: 0 0 16px rgba(200,230,0,0.14), inset 0 0 28px rgba(200,230,0,0.06); }
+      50%      { box-shadow: 0 0 28px rgba(200,230,0,0.28), inset 0 0 32px rgba(200,230,0,0.10); }
+    }
+    .glow-tile { animation: glow-tile-pulse 4s ease-in-out infinite; }
+    .glow-tile:hover {
+      animation: none;
+      box-shadow: 0 0 24px rgba(200,230,0,0.45), inset 0 0 32px rgba(200,230,0,0.16) !important;
     }
 
     /* Trophy card */
@@ -117,42 +164,47 @@
 <body class="antialiased">
 
   <!-- ===================== NAVBAR ===================== -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 navbar-shell">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
 
       <!-- Logo -->
-      <a href="#home" class="flex items-center flex-shrink-0">
-        <img src="torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="h-14 w-auto" />
+      <a href="#home" class="flex items-center flex-shrink-0 transition-transform duration-300 hover:scale-[1.04]">
+        <img src="torpedo-kana-logo-black-bg.png" alt="Torpedos Kana" class="h-14 w-auto" style="filter:drop-shadow(0 0 12px rgba(200,230,0,0.18));" />
       </a>
 
       <!-- Desktop nav -->
-      <ul class="hidden md:flex items-center gap-8 mx-auto">
-        <li><a href="#home"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Home</a></li>
-        <li><a href="#about"       class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">About</a></li>
-        <li><a href="#team"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Squad</a></li>
-        <li><a href="#community"   class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Community</a></li>
-        <li><a href="#milestones"  class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">Gallery</a></li>
-        <li><a href="#news"        class="nav-link text-sm font-medium text-gray-200 hover:text-yellow-DEFAULT transition-colors tracking-widest uppercase">News</a></li>
-        <li><a href="#contact"     class="px-5 py-2 bg-green-DEFAULT hover:bg-green-dark text-white text-sm font-semibold rounded-lg transition-colors tracking-widest uppercase">Contact Us</a></li>
+      <ul class="hidden md:flex items-center gap-7 lg:gap-9 mx-auto">
+        <li><a href="#home"        class="nav-link text-[0.78rem] font-bold text-gray-100 hover:text-yellow-DEFAULT tracking-[0.18em] uppercase">Home</a></li>
+        <li><a href="#about"       class="nav-link text-[0.78rem] font-bold text-gray-100 hover:text-yellow-DEFAULT tracking-[0.18em] uppercase">About</a></li>
+        <li><a href="#team"        class="nav-link text-[0.78rem] font-bold text-gray-100 hover:text-yellow-DEFAULT tracking-[0.18em] uppercase">Squad</a></li>
+        <li><a href="#community"   class="nav-link text-[0.78rem] font-bold text-gray-100 hover:text-yellow-DEFAULT tracking-[0.18em] uppercase">Community</a></li>
+        <li><a href="#milestones"  class="nav-link text-[0.78rem] font-bold text-gray-100 hover:text-yellow-DEFAULT tracking-[0.18em] uppercase">Gallery</a></li>
+        <li><a href="#news"        class="nav-link text-[0.78rem] font-bold text-gray-100 hover:text-yellow-DEFAULT tracking-[0.18em] uppercase">News</a></li>
       </ul>
 
+      <!-- CTA -->
+      <a href="#contact" class="nav-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-[0.78rem] font-black rounded-full tracking-[0.2em] uppercase flex-shrink-0">
+        Contact
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+      </a>
+
       <!-- Mobile hamburger -->
-      <button id="menu-btn" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Toggle menu">
-        <span class="w-6 h-0.5 bg-white block transition-all duration-300" id="bar1"></span>
-        <span class="w-6 h-0.5 bg-white block transition-all duration-300" id="bar2"></span>
-        <span class="w-6 h-0.5 bg-white block transition-all duration-300" id="bar3"></span>
+      <button id="menu-btn" class="menu-btn-shell md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-0" aria-label="Toggle menu">
+        <span class="w-5 h-0.5 bg-yellow-DEFAULT block transition-all duration-300" id="bar1" style="background:#c8e600;"></span>
+        <span class="w-5 h-0.5 bg-yellow-DEFAULT block transition-all duration-300" id="bar2" style="background:#c8e600;"></span>
+        <span class="w-5 h-0.5 bg-yellow-DEFAULT block transition-all duration-300" id="bar3" style="background:#c8e600;"></span>
       </button>
     </nav>
 
     <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden hidden bg-black/97 border-t border-white/10 max-h-0 opacity-0 overflow-hidden">
       <ul class="flex flex-col px-6 py-4 gap-1">
-        <li><a href="#home"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Home</a></li>
-        <li><a href="#about"      class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">About</a></li>
-        <li><a href="#team"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Squad</a></li>
-        <li><a href="#community"  class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Community</a></li>
-        <li><a href="#milestones" class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">Gallery</a></li>
-        <li><a href="#news"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-medium border-b border-white/5 transition-colors">News</a></li>
+        <li><a href="#home"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-bold border-b border-white/5 transition-colors">Home</a></li>
+        <li><a href="#about"      class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-bold border-b border-white/5 transition-colors">About</a></li>
+        <li><a href="#team"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-bold border-b border-white/5 transition-colors">Squad</a></li>
+        <li><a href="#community"  class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-bold border-b border-white/5 transition-colors">Community</a></li>
+        <li><a href="#milestones" class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-bold border-b border-white/5 transition-colors">Gallery</a></li>
+        <li><a href="#news"       class="mobile-link block py-3 text-gray-200 hover:text-yellow-DEFAULT font-bold border-b border-white/5 transition-colors">News</a></li>
         <li><a href="#contact"    class="mobile-link block py-3 text-yellow-DEFAULT font-semibold transition-colors">Contact Us →</a></li>
       </ul>
     </div>
@@ -404,98 +456,99 @@
       <div class="space-y-8">
 
         <!-- Card 1: Financial Empowerment -->
-        <div class="reveal card rounded-2xl p-8 sm:p-10" style="background:#0f172a;">
+        <div class="reveal card glow-card rounded-2xl p-8 sm:p-10" style="background:#1e293b;">
           <div class="flex items-center gap-4 mb-6">
             <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background:#c8e600;">
               <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <h3 class="text-xl font-black text-white">1. Financial Empowerment: Scholarships &amp; Fee Support</h3>
+            <h3 class="text-xl font-black text-white">Scholarships &amp; Beyond</h3>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">Through this collaborative effort, we provide a robust safety net for students who possess merit and drive but lack the financial resources to pursue higher education.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-gray-300 leading-relaxed mb-7">Through this collaborative effort, we provide a robust <span class="font-semibold" style="color:#c8e600;">safety net</span> for students who possess merit and drive but lack the financial resources to pursue higher education.</p>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="glow-tile rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+              <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-3" style="background:rgba(200,230,0,0.12);">
+                <svg class="w-6 h-6" style="color:#c8e600;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
               </div>
-              <div>
-                <span class="font-bold text-white">Comprehensive Scholarships:</span>
-                <span class="text-gray-300"> Jointly funded tuition support, covering books and essential learning materials for school and college-level education.</span>
+              <h4 class="font-black text-white text-sm mb-1.5 leading-snug">Comprehensive Scholarships</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Jointly funded tuition support covering books and learning materials for school and college.</p>
+            </div>
+
+            <div class="glow-tile rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+              <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-3" style="background:rgba(200,230,0,0.12);">
+                <svg class="w-6 h-6" style="color:#c8e600;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              <h4 class="font-black text-white text-sm mb-1.5 leading-snug">Direct Fee Assistance</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">A streamlined process to help students facing immediate financial hurdles and prevent dropouts.</p>
+            </div>
+
+            <div class="glow-tile rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+              <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-3" style="background:rgba(200,230,0,0.12);">
+                <svg class="w-6 h-6" style="color:#c8e600;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
               </div>
-              <div>
-                <span class="font-bold text-white">Direct Fee Assistance:</span>
-                <span class="text-gray-300"> A streamlined process to assist students facing immediate financial hurdles to prevent dropouts.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <div>
-                <span class="font-bold text-white">Community-Specific Outreach:</span>
-                <span class="text-gray-300"> Targeted support for students from historically underserved communities to promote inclusivity in professional sectors.</span>
-              </div>
-            </li>
-          </ul>
+              <h4 class="font-black text-white text-sm mb-1.5 leading-snug">Community-Specific Outreach</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Targeted support for students from underserved communities, promoting inclusivity in professional sectors.</p>
+            </div>
+          </div>
+
           <!-- Pull quote -->
-          <div class="mt-8 border-l-4 pl-5" style="border-color:#c8e600;">
-            <p class="text-gray-300 italic leading-relaxed">"Our partnership with Trescon Foundation allows us to double our impact, moving from mere financial aid to sustainable community empowerment."</p>
+          <div class="mt-8 relative rounded-2xl px-6 py-6 sm:px-8 sm:py-7" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+            <svg class="absolute -top-3 left-5 w-8 h-8 px-1.5 py-1 rounded-md" style="background:#1e293b;color:#c8e600;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+            </svg>
+            <p class="italic leading-relaxed text-base sm:text-lg" style="color:#c8e600;">Our partnership with Trescon Foundation allows us to double our impact, moving from mere financial aid to sustainable community empowerment.</p>
           </div>
         </div>
 
         <!-- Card 2: Career Counseling -->
-        <div class="reveal card rounded-2xl p-8 sm:p-10" style="background:#0f172a;">
+        <div class="reveal card glow-card rounded-2xl p-8 sm:p-10" style="background:#1e293b;">
           <div class="flex items-center gap-4 mb-6">
             <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background:#c8e600;">
               <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
             </div>
-            <h3 class="text-xl font-black text-white">2. Navigating the Future: Career Counseling &amp; Guidance</h3>
+            <h3 class="text-xl font-black text-white">Career Guidance &amp; Support</h3>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">The Torpedos Kana &amp; Trescon Foundation alliance focuses on bridging the "guidance gap." We provide the networks and mentorship often missing for students from backward communities.</p>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-gray-300 leading-relaxed mb-7">The Torpedos Kana &amp; Trescon Foundation alliance focuses on bridging the <span class="font-semibold" style="color:#c8e600;">"guidance gap."</span> We provide the networks and mentorship often missing for students from backward communities.</p>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="glow-tile rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+              <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-3" style="background:rgba(200,230,0,0.12);">
+                <svg class="w-6 h-6" style="color:#c8e600;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5.13a4 4 0 11-8 0 4 4 0 018 0zm6 4a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
-              <div>
-                <span class="font-bold text-white">Joint Mentorship Programs:</span>
-                <span class="text-gray-300"> Access to a wider network of professionals from both organizations providing real-world insights.</span>
+              <h4 class="font-black text-white text-sm mb-1.5 leading-snug">Joint Mentorship Programs</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">A wider network of professionals from both organizations providing real-world insights.</p>
+            </div>
+
+            <div class="glow-tile rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+              <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-3" style="background:rgba(200,230,0,0.12);">
+                <svg class="w-6 h-6" style="color:#c8e600;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
               </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              <h4 class="font-black text-white text-sm mb-1.5 leading-snug">Personalized Career Roadmaps</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Individualized counseling to identify strengths and navigate entrance exams or applications.</p>
+            </div>
+
+            <div class="glow-tile rounded-xl p-5 transition-transform duration-200 hover:-translate-y-1" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+              <div class="w-11 h-11 rounded-lg flex items-center justify-center mb-3" style="background:rgba(200,230,0,0.12);">
+                <svg class="w-6 h-6" style="color:#c8e600;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
-              <div>
-                <span class="font-bold text-white">Personalized Career Roadmaps:</span>
-                <span class="text-gray-300"> Individualized counseling to identify strengths and navigate entrance exams or university applications.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div class="w-7 h-7 rounded-full bg-green-DEFAULT flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <div>
-                <span class="font-bold text-white">Employability Skill Workshops:</span>
-                <span class="text-gray-300"> Combined resources to offer training in soft skills, digital literacy, and interview techniques.</span>
-              </div>
-            </li>
-          </ul>
+              <h4 class="font-black text-white text-sm mb-1.5 leading-snug">Employability Skill Workshops</h4>
+              <p class="text-gray-400 text-sm leading-relaxed">Combined resources for soft skills, digital literacy and interview techniques.</p>
+            </div>
+          </div>
         </div>
 
         <!-- Card 3: Shared Philosophy -->
-        <div class="reveal card rounded-2xl p-8 sm:p-10 text-center" style="background:#0f172a;">
+        <div class="reveal card glow-card rounded-2xl p-8 sm:p-10 text-center" style="background:#1e293b;">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="background:#c8e600;">
             <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </div>
           <h3 class="text-xl font-black text-white mb-4">Our Shared Philosophy</h3>
-          <blockquote class="max-w-2xl mx-auto border-l-4 pl-6 py-2" style="border-color:#c8e600;">
-            <p class="text-gray-300 leading-relaxed text-lg" style="font-style:italic;">
-              The collaboration between Torpedos Kana and the Trescon Foundation is built on the belief that <strong class="text-white">collective action creates lasting change</strong>. We remove the barriers of cost and lack of information, allowing students to focus on what matters most: their growth and their future.
+          <blockquote class="relative max-w-2xl mx-auto rounded-2xl px-6 py-7 sm:px-8 sm:py-8" style="background:rgba(200,230,0,0.07);border:1px solid rgba(200,230,0,0.28);box-shadow:0 0 28px rgba(200,230,0,0.06) inset;">
+            <svg class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 p-1.5 rounded-md" style="background:#1e293b;color:#c8e600;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+            </svg>
+            <p class="leading-relaxed text-base sm:text-lg italic" style="color:#c8e600;">
+              The collaboration between Torpedos Kana and the Trescon Foundation is built on the belief that <strong class="not-italic font-black" style="color:#ffffff;">collective action creates lasting change</strong>. We remove the barriers of cost and lack of information, allowing students to focus on what matters most: their growth and their future.
             </p>
           </blockquote>
         </div>
